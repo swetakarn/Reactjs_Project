@@ -1,0 +1,24 @@
+.search_bar {
+  background-color: #dddddd;
+  width: 500px;
+  border: none;
+  outline: none;
+  border-radius: 10px !important;
+  padding: 10px 5px;
+  /* display: flex;
+  justify-content: center; */
+}
+.pagination button {
+  background-color:#9f9ce2;
+  margin: 0px 5px;
+  border: none;
+  border: #ffffff;
+  border-radius:5px;
+  color: #ffffff;
+
+}
+@media (max-width:500px) {
+  .search_bar{
+    width: 300px;
+  }
+}
