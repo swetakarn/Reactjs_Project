@@ -17,6 +17,16 @@
   color: #ffffff;
 
 }
+.filteredbtns{
+  background-color: #9f9ce2;
+  border: none;
+  margin: 10px 5px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
 @media (max-width:500px) {
   .search_bar{
     width: 300px;

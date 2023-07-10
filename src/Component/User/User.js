@@ -8,6 +8,9 @@ const User = () => {
   const [search, setSearch] = useState("");
   const [page, setNewPage] = useState(1);
   const [usersPerPage] = useState(10);
+  const [sortByTitle, setSortByTitle] = useState(false);
+const [sortByDate, setSortByDate] = useState(false);
+
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
   const loading = useSelector((state) => state.users.loading);
@@ -24,19 +27,41 @@ const User = () => {
   const paginate = (pageNumber) => {
     setNewPage(pageNumber);
   };
-  const filteredUsers = currentUser.filter((user) => {
+
+  let sortedUsers = [...currentUser];
+
+  if (sortByTitle) {
+    sortedUsers = sortedUsers.sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+  } else if (sortByDate) {
+    sortedUsers = sortedUsers.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+  }
+  
+  const filteredUsers = sortedUsers.filter((user) => {
     const { title, body } = user;
     const searchTerm = search.toLowerCase();
-
+  
     return (
       title.toLowerCase().includes(searchTerm) ||
       body.toLowerCase().includes(searchTerm)
     );
   });
-
+  const handleSortByTitle = () => {
+    setSortByTitle(true);
+    setSortByDate(false);
+  };
+  
+  const handleSortByDate = () => {
+    setSortByTitle(false);
+    setSortByDate(true);
+  };
+  
   return (
     <>
-      <div className=" container px-3 py-2 mx-4 my-4">
+      <div className=" container py-2 my-4">
         <div className="d-flex justify-content-center">
         <input
           className="search_bar"
@@ -49,6 +74,9 @@ const User = () => {
           }}
         />
         </div>
+
+        <button className="filteredbtns" onClick={handleSortByTitle}>Sort by Title</button>
+    <button className="filteredbtns" onClick={handleSortByDate}>Sort by Date</button>
       
       </div>
       <div className="row">
