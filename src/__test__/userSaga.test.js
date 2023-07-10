@@ -28,6 +28,4 @@ describe('User Saga', () => {
       .put(getUsersFailed(error.message))
       .run();
   });
-
-  // Add more test cases for different scenarios as needed
 });

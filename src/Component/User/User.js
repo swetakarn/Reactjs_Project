@@ -19,7 +19,8 @@ const [sortByDate, setSortByDate] = useState(false);
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-
+  
+// PAGINATION
   const pageofLastUser = page * usersPerPage;
   const pageofFirstUser = pageofLastUser - usersPerPage;
   const currentUser = users.slice(pageofFirstUser, pageofLastUser);
@@ -27,7 +28,7 @@ const [sortByDate, setSortByDate] = useState(false);
   const paginate = (pageNumber) => {
     setNewPage(pageNumber);
   };
-
+//SORTING
   let sortedUsers = [...currentUser];
 
   if (sortByTitle) {
@@ -40,15 +41,7 @@ const [sortByDate, setSortByDate] = useState(false);
     );
   }
   
-  const filteredUsers = sortedUsers.filter((user) => {
-    const { title, body } = user;
-    const searchTerm = search.toLowerCase();
-  
-    return (
-      title.toLowerCase().includes(searchTerm) ||
-      body.toLowerCase().includes(searchTerm)
-    );
-  });
+
   const handleSortByTitle = () => {
     setSortByTitle(true);
     setSortByDate(false);
@@ -58,6 +51,16 @@ const [sortByDate, setSortByDate] = useState(false);
     setSortByTitle(false);
     setSortByDate(true);
   };
+//SEARCHING 
+  const filteredUsers = sortedUsers.filter((user) => {
+    const { title, body } = user;
+    const searchTerm = search.toLowerCase();
+  
+    return (
+      title.toLowerCase().includes(searchTerm) ||
+      body.toLowerCase().includes(searchTerm)
+    );
+  });
   
   return (
     <>

@@ -1,13 +1,13 @@
 import React from "react";
 import "./card.css";
 
-const Card = ({ user, index }) => {
-  const cardClass = index % 2 === 0 ? 'cardeven' : 'cardodd';
+const Card = ({ user }) => {
+
 
   return (
     <>
       <div>
-        <div className={cardClass}>
+        <div className="cardBox">
           <div className="colorText">
             {/* <div className="card-text">UserId:{user.userId}</div>
             <div className="card-text">id:{user.id}</div> */}

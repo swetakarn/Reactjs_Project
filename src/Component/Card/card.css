@@ -1,12 +1,5 @@
-.cardeven {
-  background-color: rgb(22, 22, 101) !important;
-  border-radius: 15px !important;
-  height: 250px !important;
-  color: #ffffff !important;
-  padding: 20px 10px;
-  margin: 10px 0px;
-}
-.cardodd {
+
+.cardBox {
   background-color: rgb(30, 203, 94) !important;
   border-radius: 15px !important;
   height: 250px !important;

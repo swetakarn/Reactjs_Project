@@ -27,8 +27,7 @@ describe('Users component', () => {
       </Provider>
     );
 
-    // Addyour assertions here to check if the component renders as expected
-    // For example:
+
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('Jane Smith')).toBeInTheDocument();
   });
